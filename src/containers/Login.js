@@ -33,12 +33,12 @@ export default class Login extends Component {
   
     try {
       await this.login(this.state.email, this.state.password);
-      alert("Logged in");
+      this.props.userHasAuthenticated(true);
     } catch (e) {
       alert(e);
     }
   }
-  
+
   login(email, password) {
     const userPool = new CognitoUserPool({
       UserPoolId: config.cognito.USER_POOL_ID,
