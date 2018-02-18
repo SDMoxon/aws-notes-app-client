@@ -127,24 +127,6 @@ export default class Signup extends Component {
       })
     );
   }
-  
-  signup(email, password) {
-    const userPool = new CognitoUserPool({
-      UserPoolId: config.cognito.USER_POOL_ID,
-      ClientId: config.cognito.APP_CLIENT_ID
-    });
-  
-    return new Promise((resolve, reject) =>
-      userPool.signUp(email, password, [], null, (err, result) => {
-        if (err) {
-          reject(err);
-          return;
-        }
-  
-        resolve(result.user);
-      })
-    );
-  }
   renderConfirmationForm() {
     return (
       <form onSubmit={this.handleConfirmationSubmit}>
