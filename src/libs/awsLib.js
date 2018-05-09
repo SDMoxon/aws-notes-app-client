@@ -121,7 +121,6 @@ export async function s3Upload(file) {
   }
 
   const s3 = new AWS.S3({
-    region: 'us-west-1',
     params: {
       Bucket: config.s3.BUCKET
     }
